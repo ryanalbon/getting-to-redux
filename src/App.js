@@ -1,9 +1,16 @@
 import React from 'react';
+import WidgetList from './WidgetList';
 
-function App() {
-  return (
-    'App'
-  );
+class App extends React.Component {
+  state = {
+    widgets: ['alice', 'bob'],
+  };
+
+  render() {
+    return (
+      <WidgetList widgets={this.state.widgets} />
+    );
+  }
 }
 
 export default App;
