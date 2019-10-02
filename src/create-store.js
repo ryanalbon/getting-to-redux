@@ -1,8 +1,6 @@
-function createStore(reducer) {
+function createStore(reducer, initialState) {
   let callback = () => {};
-  let state = {
-    widgets: ['alice', 'bob'],
-  };
+  let state = initialState;
 
   return {
     getState: () => state,
