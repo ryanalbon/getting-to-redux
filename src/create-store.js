@@ -1,6 +1,6 @@
-function createStore(reducer, initialState) {
+function createStore(reducer, initialState = {}) {
   let callback = () => {};
-  let state = initialState;
+  let state = reducer(initialState, { type: 'STORE_INIT' });
 
   return {
     getState: () => state,
