@@ -5,7 +5,7 @@ function WidgetFormWithAppContext(props) {
   return (
     <AppContext.Consumer>
       {
-        consumer => <WidgetForm onSubmit={consumer.addWidget} {...props} />
+        context => <WidgetForm dispatch={context.dispatch} {...props} />
       }
     </AppContext.Consumer>
   );
@@ -29,7 +29,7 @@ class WidgetForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.props.onSubmit(this.state.widget);
+    this.props.dispatch({ type: 'ADD_WIDGET', widget: this.state.widget });
     this.setState({ widget: '' });
   }
 }

@@ -4,6 +4,16 @@ import AppContextProvider from './AppContextProvider';
 import App from './App';
 import createStore from './create-store';
 
-const store = createStore();
+function reducer(state, action) {
+  switch (action.type) {
+    case 'ADD_WIDGET':
+      return { ...state, widgets: [ ...state.widgets, action.widget ] };
+
+    default:
+      return state;
+  }
+}
+
+const store = createStore(reducer);
 
 ReactDOM.render(<AppContextProvider store={store}><App /></AppContextProvider>, document.getElementById('root'));

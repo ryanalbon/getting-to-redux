@@ -5,7 +5,7 @@ class AppContextProvider extends React.Component {
   constructor(props) {
     super(props);
     props.store.setCallback(state => this.setState({ ...state }));
-    this.state = { ...props.store.getState() };
+    this.state = { ...props.store.getState(), dispatch: props.store.dispatch };
   }
 
   render() {
