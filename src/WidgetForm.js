@@ -1,4 +1,15 @@
 import React from 'react';
+import AppContext from './AppContext';
+
+function WidgetFormWithAppContext(props) {
+  return (
+    <AppContext.Consumer>
+      {
+        consumer => <WidgetForm onSubmit={consumer.addWidget} {...props} />
+      }
+    </AppContext.Consumer>
+  );
+}
 
 class WidgetForm extends React.Component {
   state = {
@@ -23,4 +34,4 @@ class WidgetForm extends React.Component {
   }
 }
 
-export default WidgetForm;
+export default WidgetFormWithAppContext;

@@ -6,19 +6,16 @@ import WidgetList from './WidgetList';
 class App extends React.Component {
   state = {
     widgets: ['alice', 'bob'],
+    addWidget: widget => this.setState(state => ({ widgets: [ ...state.widgets, widget] })),
   };
 
   render() {
     return (
       <AppContext.Provider value={this.state}>
-        <WidgetForm onSubmit={widget => this.addWidget(widget)} />
+        <WidgetForm />
         <WidgetList />
       </AppContext.Provider>
     );
-  }
-
-  addWidget(widget) {
-    this.setState(({ widgets }) => ({ widgets: [ ...widgets, widget ] }));
   }
 }
 
