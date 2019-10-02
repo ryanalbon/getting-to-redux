@@ -9,6 +9,9 @@ function reducer(state, action) {
     case 'ADD_WIDGET':
       return { ...state, widgets: [ ...state.widgets, action.widget ] };
 
+    case 'ADD_GADGET':
+      return { ...state, gadgets: [ ...state.gadgets, action.gadget ] };
+
     default:
       return state;
   }
