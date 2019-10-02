@@ -1,4 +1,5 @@
 import React from 'react';
+import GadgetList from './GadgetList';
 import WidgetForm from './WidgetForm';
 import WidgetList from './WidgetList';
 
@@ -7,6 +8,8 @@ function App() {
     <main>
       <WidgetForm />
       <WidgetList />
+      <hr />
+      <GadgetList />
     </main>
   );
 }

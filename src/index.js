@@ -16,6 +16,7 @@ function reducer(state, action) {
 
 const store = createStore(reducer, {
   widgets: ['alice', 'bob'],
+  gadgets: ['claire', 'dave'],
 });
 
 ReactDOM.render(<AppContextProvider store={store}><App /></AppContextProvider>, document.getElementById('root'));
