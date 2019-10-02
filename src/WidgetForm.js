@@ -1,15 +1,5 @@
 import React from 'react';
-import AppContext from './AppContext';
-
-function WidgetFormWithAppContext(props) {
-  return (
-    <AppContext.Consumer>
-      {
-        context => <WidgetForm dispatch={context.dispatch} {...props} />
-      }
-    </AppContext.Consumer>
-  );
-}
+import WithAppContext from './WithAppContext';
 
 class WidgetForm extends React.Component {
   state = {
@@ -33,5 +23,7 @@ class WidgetForm extends React.Component {
     this.setState({ widget: '' });
   }
 }
+
+const WidgetFormWithAppContext = WithAppContext()(WidgetForm);
 
 export default WidgetFormWithAppContext;
