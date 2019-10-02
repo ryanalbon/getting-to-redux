@@ -1,4 +1,5 @@
 import React from 'react';
+import AppContext from './AppContext';
 import WidgetForm from './WidgetForm';
 import WidgetList from './WidgetList';
 
@@ -9,10 +10,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <main>
+      <AppContext.Provider value={this.state}>
         <WidgetForm onSubmit={widget => this.addWidget(widget)} />
-        <WidgetList widgets={this.state.widgets} />
-      </main>
+        <WidgetList />
+      </AppContext.Provider>
     );
   }
 
