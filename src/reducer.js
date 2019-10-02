@@ -24,11 +24,21 @@ function widgetsReducer(state, action) {
   }
 }
 
-function reducer(state, action) {
-  return {
-    gadgets: gadgetsReducer(state.gadgets, action),
-    widgets: widgetsReducer(state.widgets, action),
+function combineReducers(reducerMap) {
+  return function (state, action) {
+    return Object.entries(reducerMap).reduce(
+      function (result, [key, reducer]) {
+        return {
+          ...result,
+          [key]: reducer(state[key], action),
+        };
+      },
+      {},
+    );
   };
 }
 
-export default reducer;
+export default combineReducers({
+  gadgets: gadgetsReducer,
+  widgets: widgetsReducer,
+});
